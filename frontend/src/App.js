@@ -1,17 +1,19 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import ReportForm from "./components/ReportForm";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <main>
-        <h1>Welcome to the Lost and Found Portal</h1>
-        <p>Use the navigation bar to report lost and found items.</p>
-      </main>
-    </div>
+    <Router>
+      <Navbar />  {/* Ensure the Navbar is visible on all pages */}
+      <Routes>
+      <Route path="/report-form" element={<ReportForm />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
 
