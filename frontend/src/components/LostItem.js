@@ -5,7 +5,7 @@ const LostItem = ({ lostItems }) => {
   return (
     <div>
       <h2>Lost Items</h2>
-      <Link to="/">Report Another Item</Link>
+      {/* <Link to="/">Report Another Item</Link> */}
       <ul>
         {lostItems.length === 0 ? (
           <p>No lost items reported yet.</p>

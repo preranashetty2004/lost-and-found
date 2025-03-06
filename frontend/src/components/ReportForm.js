@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ReportForm.css";
 
-const ReportForm = ({ setLostItems }) => {
+const ReportForm = ({ setLostItems, setFoundItems }) => {
   const [formData, setFormData] = useState({
     itemName: "",
     category: "",
@@ -36,7 +36,11 @@ const ReportForm = ({ setLostItems }) => {
     e.preventDefault();
 
     if (formData.category === "lost") {
-      setLostItems((prevItems) => [...prevItems, formData]); // ✅ Update state
+      setLostItems((prevItems) => [...prevItems, formData]); // ✅ Store lost item
+      navigate("/lost-items"); // Redirect to Lost Items Page
+    } else if (formData.category === "found") {
+      setFoundItems((prevItems) => [...prevItems, formData]); // ✅ Store found item
+      navigate("/found-items"); // Redirect to Found Items Page
     }
 
     // Reset form
@@ -50,8 +54,6 @@ const ReportForm = ({ setLostItems }) => {
       imagePreview: null,
       contact: "",
     });
-
-    navigate("/lost-items"); // ✅ Redirect to Lost Items Page
   };
 
   return (
@@ -90,4 +92,3 @@ const ReportForm = ({ setLostItems }) => {
 };
 
 export default ReportForm;
-
