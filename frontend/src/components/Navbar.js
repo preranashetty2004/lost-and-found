@@ -12,17 +12,17 @@ const Navbar = () => {
       
       <ul className="nav-links">
           <li>
-            <Link to="/" className="nav-item">HOME</Link>
+            <Link to="/" className="nav-item">Home</Link>
           </li>
           <li>
           <Link to="/report-form" className="nav-item">Report Lost</Link>
           </li>
-          {/* <li>
-            <Link to="/chatbot" className="nav-item">CHATBOT</Link>
+            <li> 
+            <Link to="/Lost-item" className="nav-item">Lost Item</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/about" className="nav-item">ABOUT US</Link>
-          </li> */}
+          </li>  */}
       </ul>
     </nav>
   );
