@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import ReportForm from "./components/ReportForm";
@@ -7,6 +9,7 @@ import LostItemsPage from "./components/LostItem";
 import FoundItemsPage from "./components/FoundItem";
 
 function App() {
+  const [user, setUser] = useState(null);
   const [lostItems, setLostItems] = useState([]); 
   const [foundItems, setFoundItems] = useState([]);
 
@@ -15,6 +18,8 @@ function App() {
       <Navbar /> {/* Ensure the Navbar is visible on all pages */}
       <Routes>
         <Route path="/" element={<Home />} /> 
+        <Route path="/signup" element={<SignUp setUser={setUser} />} />  
+        <Route path="/signin" element={<SignIn user={user} setUser={setUser} />} />
         <Route path="/report-form" element={<ReportForm setLostItems={setLostItems} setFoundItems={setFoundItems} />} />
         <Route path="/lost-items" element={<LostItemsPage lostItems={lostItems} />} />
         <Route path="/found-items" element={<FoundItemsPage foundItems={foundItems} />} />
@@ -24,6 +29,9 @@ function App() {
 }
 
 export default App;
+
+
+
 
 
 

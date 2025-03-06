@@ -1,8 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom"
+
 import "./Navbar.css";
 
 const Navbar = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Remove token
+    setIsAuthenticated(false); // Update state
+    navigate("/signin"); // Redirect to login page
+  };
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -11,6 +25,7 @@ const Navbar = () => {
       </div>
       
       <ul className="nav-links">
+          
           <li>
             <Link to="/" className="nav-item">Home</Link>
           </li>
@@ -23,6 +38,17 @@ const Navbar = () => {
           <li>
             <Link to="/Found-item" className="nav-item">Found Item</Link>
           </li> 
+          {isAuthenticated ? (
+            <li>
+              <button onClick={handleLogout} className="nav-item auth-link logout-btn">
+                LOGOUT
+              </button>
+            </li>
+          ) : (
+            <li>
+              <Link to="/signin" className="nav-item auth-link">SIGN IN</Link>
+            </li>
+          )}
       </ul>
     </nav>
   );
