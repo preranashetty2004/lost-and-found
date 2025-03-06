@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 import "./ReportForm.css";
 
-const ReportForm = () => {
+const ReportForm = ({ setLostItems }) => {
   const [formData, setFormData] = useState({
     itemName: "",
     category: "",
@@ -13,6 +13,8 @@ const ReportForm = () => {
     imagePreview: null,
     contact: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,19 +34,24 @@ const ReportForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
 
-    // Example: Send formData to backend
-    const formDataToSend = new FormData();
-    formDataToSend.append("itemName", formData.itemName);
-    formDataToSend.append("category", formData.category);
-    formDataToSend.append("date", formData.date);
-    formDataToSend.append("location", formData.location);
-    formDataToSend.append("description", formData.description);
-    formDataToSend.append("image", formData.image);
-    formDataToSend.append("contact", formData.contact);
+    if (formData.category === "lost") {
+      setLostItems((prevItems) => [...prevItems, formData]); // ✅ Update state
+    }
 
-    // Send formDataToSend to the backend API
+    // Reset form
+    setFormData({
+      itemName: "",
+      category: "",
+      date: "",
+      location: "",
+      description: "",
+      image: null,
+      imagePreview: null,
+      contact: "",
+    });
+
+    navigate("/lost-items"); // ✅ Redirect to Lost Items Page
   };
 
   return (
@@ -52,47 +59,19 @@ const ReportForm = () => {
       <form className="report-form" onSubmit={handleSubmit}>
         <h2>Report Lost/Found Item</h2>
 
-        <input
-          type="text"
-          name="itemName"
-          placeholder="ITEM NAME"
-          value={formData.itemName}
-          onChange={handleChange}
-          required
-        />
+        <input type="text" name="itemName" placeholder="ITEM NAME" value={formData.itemName} onChange={handleChange} required />
 
         <select name="category" value={formData.category} onChange={handleChange} required>
-          <option value="">CATEGORY (DROPDOWN)</option>
+          <option value="">CATEGORY</option>
           <option value="lost">LOST</option>
           <option value="found">FOUND</option>
-          {/* <option value="documents">Documents</option>
-          <option value="other">Other</option> */}
         </select>
 
-        <input
-          type="date"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-          required
-        />
+        <input type="date" name="date" value={formData.date} onChange={handleChange} required />
 
-        <input
-          type="text"
-          name="location"
-          placeholder="LOCATION"
-          value={formData.location}
-          onChange={handleChange}
-          required
-        />
+        <input type="text" name="location" placeholder="LOCATION" value={formData.location} onChange={handleChange} required />
 
-        <textarea
-          name="description"
-          placeholder="DESCRIPTION"
-          value={formData.description}
-          onChange={handleChange}
-          required
-        />
+        <textarea name="description" placeholder="DESCRIPTION" value={formData.description} onChange={handleChange} required />
 
         <input type="file" accept="image/*" onChange={handleFileChange} required />
 
@@ -102,14 +81,7 @@ const ReportForm = () => {
           </div>
         )}
 
-        <input
-          type="text"
-          name="contact"
-          placeholder="CONTACT"
-          value={formData.contact}
-          onChange={handleChange}
-          required
-        />
+        <input type="text" name="contact" placeholder="CONTACT" value={formData.contact} onChange={handleChange} required />
 
         <button type="submit">Submit</button>
       </form>
@@ -118,3 +90,4 @@ const ReportForm = () => {
 };
 
 export default ReportForm;
+
