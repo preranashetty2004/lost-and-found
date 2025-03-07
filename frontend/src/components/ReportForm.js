@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ReportForm.css";
 
-const ReportForm = ({ setLostItems, setFoundItems }) => {
+const ReportForm = () => {
   const [formData, setFormData] = useState({
     itemName: "",
     category: "",
@@ -35,13 +35,14 @@ const ReportForm = ({ setLostItems, setFoundItems }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (formData.category === "lost") {
-      setLostItems((prevItems) => [...prevItems, formData]); // ✅ Store lost item
-      navigate("/lost-items"); // Redirect to Lost Items Page
-    } else if (formData.category === "found") {
-      setFoundItems((prevItems) => [...prevItems, formData]); // ✅ Store found item
-      navigate("/found-items"); // Redirect to Found Items Page
-    }
+    // Get previous lost items from localStorage
+    const savedItems = JSON.parse(localStorage.getItem("lostItems")) || [];
+
+    // Add new lost item
+    const updatedItems = [...savedItems, formData];
+
+    // Store back in localStorage
+    localStorage.setItem("lostItems", JSON.stringify(updatedItems));
 
     // Reset form
     setFormData({
@@ -54,6 +55,12 @@ const ReportForm = ({ setLostItems, setFoundItems }) => {
       imagePreview: null,
       contact: "",
     });
+
+    // Navigate to Lost Items page
+    navigate("/lost-item");
+
+    // Force page reload to reflect changes immediately
+    window.location.reload();
   };
 
   return (

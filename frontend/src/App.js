@@ -15,23 +15,19 @@ function App() {
 
   return (
     <Router>
-      <Navbar /> {/* Ensure the Navbar is visible on all pages */}
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} /> 
-        <Route path="/signup" element={<SignUp setUser={setUser} />} />  
+      <Route path="/signup" element={<SignUp setUser={setUser} />} /> 
+        <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn user={user} setUser={setUser} />} />
         <Route path="/report-form" element={<ReportForm setLostItems={setLostItems} setFoundItems={setFoundItems} />} />
         <Route path="/lost-items" element={<LostItemsPage lostItems={lostItems} />} />
-        <Route path="/found-items" element={<FoundItemsPage foundItems={foundItems} />} />
+        <Route path="/found-items" element={<FoundItemsPage foundItems={foundItems} />}/>
+        <Route path="/report-form" element={<ReportForm />} />
+        <Route path="/lost-item" element={<LostItemsPage />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
-
-
-
-
-
-

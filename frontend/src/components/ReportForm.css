@@ -5,6 +5,7 @@
     height: 100vh;
     background-color: #cce5ff;
     padding: 30px;
+    max-width: 100%;
 }
 
 .report-form {

@@ -1,0 +1,65 @@
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Exactly 3 cards per row */
+    gap: 20px; /* More spacing between cards */
+    padding: 30px;
+    justify-content: center;
+  }
+  
+  .item-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    max-width: 300px; /* Bigger card */
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .item-card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  .item-image {
+    width: 100%;
+    max-width: 250px; /* Bigger image */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .item-details {
+    width: 100%;
+  }
+  
+  .item-name {
+    font-size: 20px; /* Bigger font */
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .description {
+    font-size: 16px; /* Larger description */
+    font-weight: 500;
+    color: #444;
+  }
+  
+  .info, .contact {
+    font-size: 16px;
+    font-weight: bold; /* Make it bold */
+    color: #222;
+  }
+  
+  /* Responsive for smaller screens */
+  @media (max-width: 900px) {
+    .cards-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards per row for medium screens */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .cards-container {
+      grid-template-columns: repeat(1, 1fr); /* 1 card per row for small screens */
+    }
+  }
+  

@@ -1,25 +1,44 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import "./LostItem.css";
 
-const LostItem = ({ lostItems }) => {
+const LostItem = () => {
+  const [lostItems, setLostItems] = useState([]);
+
+  useEffect(() => {
+    const fetchLostItems = () => {
+      const savedItems = JSON.parse(localStorage.getItem("lostItems")) || [];
+      setLostItems(savedItems);
+    };
+
+    fetchLostItems();
+
+    // Listen for storage changes
+    window.addEventListener("storage", fetchLostItems);
+
+    return () => {
+      window.removeEventListener("storage", fetchLostItems);
+    };
+  }, []);
+
   return (
-    <div>
-      <h2>Lost Items</h2>
-      {/* <Link to="/">Report Another Item</Link> */}
-      <ul>
-        {lostItems.length === 0 ? (
-          <p>No lost items reported yet.</p>
-        ) : (
-          lostItems.map((item, index) => (
-            <li key={index}>
-              <strong>{item.itemName}</strong> - {item.description} <br />
-              <small>Last seen at: {item.location}, on {item.date}</small><br />
-              <strong>Contact:</strong> {item.contact}
-              {item.imagePreview && <img src={item.imagePreview} alt="Lost Item" style={{ width: "100px", marginTop: "10px" }} />}
-            </li>
-          ))
-        )}
-      </ul>
+    <div className="cards-container">
+      {lostItems.length === 0 ? (
+        <p className="no-items">No lost items reported yet.</p>
+      ) : (
+        lostItems.map((item, index) => (
+          <div key={index} className="item-card">
+            {item.imagePreview && (
+              <img src={item.imagePreview} alt="Lost Item" className="item-image" />
+            )}
+            <div className="item-details">
+              <h3 className="item-name">{item.itemName}</h3>
+              <p className="description">{item.description}</p>
+              <p className="info"><strong>Last Seen:</strong> {item.location}, on {item.date}</p>
+              <p className="contact"><strong>Contact:</strong> {item.contact}</p>
+            </div>
+          </div>
+        ))
+      )}
     </div>
   );
 };
