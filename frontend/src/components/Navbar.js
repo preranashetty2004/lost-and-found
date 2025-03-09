@@ -38,6 +38,9 @@ const Navbar = () => {
           <li>
             <Link to="/Found-item" className="nav-item">Found Item</Link>
           </li> 
+          <li>
+            <Link to="/Profile" className="nav-item">Profile</Link>
+          </li> 
           {isAuthenticated ? (
             <li>
               <button onClick={handleLogout} className="nav-item auth-link logout-btn">
