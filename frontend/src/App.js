@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import "./App.css"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
@@ -7,6 +8,8 @@ import Home from "./components/Home";
 import ReportForm from "./components/ReportForm";
 import LostItemsPage from "./components/LostItem";
 import FoundItemsPage from "./components/FoundItem";
+import { useState } from 'react';
+import Profile from "./components/Profile";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,6 +28,7 @@ function App() {
         <Route path="/found-items" element={<FoundItemsPage foundItems={foundItems} />}/>
         <Route path="/report-form" element={<ReportForm />} />
         <Route path="/lost-item" element={<LostItemsPage />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );

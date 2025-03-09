@@ -1,10 +1,16 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #6f63e5;
   padding: 15px 30px;
-  margin: 0; /* Ensures no extra space */
+   /* Ensures no extra space */
   width: 100%;
 }
 

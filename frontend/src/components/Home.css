@@ -1,4 +1,9 @@
 /* Wrapper to ensure full width and remove spaces */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box
+}
 .home-wrapper {
   display: flex;
   flex-direction: column;
