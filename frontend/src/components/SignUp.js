@@ -4,6 +4,7 @@ import "./Auth.css";
 
 const SignUp = ({ setUser }) => {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+  const [error, setError] = useState(""); // ✅ Store API errors
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -11,10 +12,28 @@ const SignUp = ({ setUser }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setUser(formData);  // ✅ Store user in state (for now)
-    navigate("/signin");  // ✅ Redirect to Sign-In page
+    setError(""); // Reset error message
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setUser(data); // ✅ Store authenticated user
+        navigate("/profile"); // ✅ Redirect to profile page
+      } else {
+        setError(data.message || "Sign-up failed");
+      }
+    } catch (error) {
+      setError("Server error, please try again later");
+    }
   };
 
   return (
@@ -26,6 +45,7 @@ const SignUp = ({ setUser }) => {
         <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
         <button type="submit">Sign Up</button>
       </form>
+      {error && <p className="error">{error}</p>} {/* ✅ Display errors */}
       <p>Already have an account? <a href="/signin">Sign In</a></p>
     </div>
   );
