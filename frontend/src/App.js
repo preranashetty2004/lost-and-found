@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import ReportForm from "./components/ReportForm";
 import LostItemsPage from "./components/LostItem";
 import FoundItemsPage from "./components/FoundItem";
+import LostItemDetails from "./components/LostItemDetails";
 import { useState } from 'react';
 import Profile from "./components/Profile";
 
