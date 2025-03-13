@@ -34,7 +34,9 @@ const Profile = () => {
       {user ? (
         <div className="profile-card">
           <h2>Welcome, {user.name}!</h2>
-          <p>Email: {user.email}</p>
+          <p><strong>Email:</strong> {user.email}</p>
+          {/* <p><strong>Phone:</strong> {user.phone || "Not provided"}</p> */}
+          <p><strong>Role:</strong> {user.role || "User"}</p>
           <button onClick={() => navigate("/home")}>Go to Home</button>
         </div>
       ) : (
