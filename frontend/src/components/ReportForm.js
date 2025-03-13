@@ -32,17 +32,27 @@ const ReportForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Get previous lost items from localStorage
-    const savedItems = JSON.parse(localStorage.getItem("lostItems")) || [];
+    const formDataToSend = new FormData();
+    Object.keys(formData).forEach((key) => {
+      formDataToSend.append(key, formData[key]);
+    });
 
-    // Add new lost item
-    const updatedItems = [...savedItems, formData];
+    try {
+      const response = await fetch("http://localhost:5000/api/report", {
+        method: "POST",
+        body: formDataToSend,
+      });
 
-    // Store back in localStorage
-    localStorage.setItem("lostItems", JSON.stringify(updatedItems));
+      if (response.ok) {
+        alert("Item reported successfully!");
+        navigate("/lost-item");
+      }
+    } catch (error) {
+      console.error("Error reporting item:", error);
+    }
 
     // Reset form
     setFormData({
@@ -68,7 +78,14 @@ const ReportForm = () => {
       <form className="report-form" onSubmit={handleSubmit}>
         <h2>Report Lost/Found Item</h2>
 
-        <input type="text" name="itemName" placeholder="ITEM NAME" value={formData.itemName} onChange={handleChange} required />
+        <input
+          type="text"
+          name="itemName"
+          placeholder="ITEM NAME"
+          value={formData.itemName}
+          onChange={handleChange}
+          required
+        />
 
         <select name="category" value={formData.category} onChange={handleChange} required>
           <option value="">CATEGORY</option>
@@ -78,9 +95,22 @@ const ReportForm = () => {
 
         <input type="date" name="date" value={formData.date} onChange={handleChange} required />
 
-        <input type="text" name="location" placeholder="LOCATION" value={formData.location} onChange={handleChange} required />
+        <input
+          type="text"
+          name="location"
+          placeholder="LOCATION"
+          value={formData.location}
+          onChange={handleChange}
+          required
+        />
 
-        <textarea name="description" placeholder="DESCRIPTION" value={formData.description} onChange={handleChange} required />
+        <textarea
+          name="description"
+          placeholder="DESCRIPTION"
+          value={formData.description}
+          onChange={handleChange}
+          required
+        />
 
         <input type="file" accept="image/*" onChange={handleFileChange} required />
 
@@ -90,7 +120,14 @@ const ReportForm = () => {
           </div>
         )}
 
-        <input type="text" name="contact" placeholder="CONTACT" value={formData.contact} onChange={handleChange} required />
+        <input
+          type="text"
+          name="contact"
+          placeholder="CONTACT"
+          value={formData.contact}
+          onChange={handleChange}
+          required
+        />
 
         <button type="submit">Submit</button>
       </form>
