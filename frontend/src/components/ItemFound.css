@@ -1,0 +1,73 @@
+/* Container Styling */
+.item-found-container {
+    display: flex;
+    gap: 30px;
+    padding: 40px;
+    background: #111; /* Dark background */
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(255, 255, 255, 0.2);
+    max-width: 1000px;
+    min-height: 550px;
+    margin: 50px auto;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.item-found-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 255, 255, 0.3);
+}
+
+/* Image Section */
+.item-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-image {
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+}
+
+/* Hover Zoom Effect */
+.item-image:hover {
+    transform: scale(1.1);
+}
+
+/* Details Section */
+.item-details-container {
+    flex: 2;
+    padding: 20px;
+}
+
+.item-details-container h2 {
+    font-size: 32px;
+    color: cyan;
+    margin-bottom: 15px;
+}
+
+.item-details-container p {
+    font-size: 20px;
+    margin: 12px 0;
+    color: #ddd;
+}
+
+/* Highlight for Labels */
+.item-details-container p strong {
+    color: cyan;
+    font-weight: 600;
+}
+
+/* Error Message */
+.error-message {
+    text-align: center;
+    color: red;
+    font-size: 22px;
+    font-weight: bold;
+}

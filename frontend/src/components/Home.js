@@ -17,14 +17,23 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Second Block */}
+      {/* Second Block - How It Works */}
       <div className="info-container">
-        <h2 className="info-title">How it Works</h2>
-        <p className="info-text">
-          Our platform helps you report and recover lost items easily. Simply
-          post details of lost or found items, and let the community assist in
-          reconnecting lost items with their owners.
-        </p>
+        <h2 className="info-title">How It Works</h2>
+        <div className="info-blocks">
+          <div className="info-card">
+            <h3>Report Lost Item</h3>
+            <p>Submit details and images of lost items, including location and description.</p>
+          </div>
+          <div className="info-card">
+            <h3>Search Found Items</h3>
+            <p>Browse lost items reported by others and check if someone found yours.</p>
+          </div>
+          <div className="info-card">
+            <h3>Claim & Connect</h3>
+            <p>Contact the person who found your item and arrange a safe return.</p>
+          </div>
+        </div>
       </div>
     </div>
   );
