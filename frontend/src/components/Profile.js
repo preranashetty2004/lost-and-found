@@ -29,15 +29,21 @@ const Profile = () => {
     fetchUser();
   }, [navigate]);
 
+  // Extract first letter of email in uppercase
+  const getEmailInitial = (email) => (email ? email.charAt(0).toUpperCase() : "");
+
   return (
     <div className="profile-container">
       {user ? (
         <div className="profile-card">
-          <h2>Welcome, {user.name}!</h2>
-          <p><strong>Email:</strong> {user.email}</p>
-          {/* <p><strong>Phone:</strong> {user.phone || "Not provided"}</p> */}
-          <p><strong>Role:</strong> {user.role || "User"}</p>
-          <button onClick={() => navigate("/home")}>Go to Home</button>
+          {/* Profile Icon (First Letter of Email) */}
+          <div className="profile-icon">
+            {getEmailInitial(user.email)}
+          </div>
+          {/* User Details */}
+          <h2>{user.name}</h2>
+          <p className="email">{user.email}</p>
+          <button onClick={() => navigate("/")}>Go to Home</button>
         </div>
       ) : (
         <p>Loading user data...</p>

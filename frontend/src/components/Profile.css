@@ -1,78 +1,73 @@
+/* Center the profile card */
 .profile-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f4f4f4;
+  background: #f4f7fc; /* Light blue-gray background */
 }
 
+/* Profile card with increased width and height */
 .profile-card {
   background: white;
-  padding: 25px;
+  padding: 30px;
   border-radius: 12px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
   text-align: center;
-  width: 350px;
+  width: 400px; /* Increased width */
+  height: 350px; /* Increased height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.profile-card h2 {
-  font-size: 24px;
+/* Profile icon with a professional blue gradient */
+.profile-icon {
+  width: 80px; /* Increased size */
+  height: 80px;
+  background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
+  color: white;
+  font-size: 32px; /* Increased font size */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   margin-bottom: 15px;
-  color: #333;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.profile-card p {
+/* User name styling */
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Email text styling */
+.email {
   font-size: 16px;
   color: #666;
-  margin-bottom: 10px;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
-.profile-img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #007bff;
-  margin-bottom: 15px;
-}
-
-.profile-card input[type="text"],
-.profile-card input[type="file"] {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.profile-card label {
-  display: block;
-  font-weight: bold;
-  margin-top: 10px;
-  color: #333;
-}
-
-.profile-card button {
-  margin-top: 15px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  background: #007bff;
+/* Stylish button */
+button {
+  padding: 12px 20px;
+  background: #0052d4;
   color: white;
-  font-size: 16px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
   transition: 0.3s;
-  width: 100%;
 }
 
-.profile-card button:hover {
-  background: #0056b3;
-}
-
-/* Responsive Styling */
-@media (max-width: 400px) {
-  .profile-card {
-      width: 90%;
-  }
+button:hover {
+  background: #003c9d;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
