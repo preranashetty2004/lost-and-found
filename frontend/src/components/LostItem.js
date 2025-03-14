@@ -7,18 +7,23 @@ const LostItem = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchLostItems = () => {
-      const savedItems = JSON.parse(localStorage.getItem("lostItems")) || [];
-      setLostItems(savedItems);
+    const fetchLostItems = async () => {
+      try{
+      const response = await fetch("http://localhost:5000/api/reports");
+      if(!response.ok){
+        throw new Error("Failed to fetch lost items");
+      }
+      const data =await response.json();
+      setLostItems(data);
+    }catch(error){
+      console.error("Error fetching lost items:", error);
+    }
     };
 
     fetchLostItems();
-    window.addEventListener("storage", fetchLostItems);
+  },[]);
 
-    return () => {
-      window.removeEventListener("storage", fetchLostItems);
-    };
-  }, []);
+    
 
   const handleCardClick = (item) => {
     navigate("/item-found", { state: { item } });
@@ -31,7 +36,7 @@ const LostItem = () => {
       ) : (
         lostItems.map((item, index) => (
           <div key={index} className="item-card" onClick={() => handleCardClick(item)}>
-            {item.imagePreview && <img src={item.imagePreview} alt="Lost Item" className="item-image" />}
+  {item.image && <img src={`http://localhost:5000/uploads/${item.image}`} alt="Lost Item" className="item-image" />}
             <div className="item-details">
               <h3 className="item-name">{item.itemName}</h3>
               <p className="info">
