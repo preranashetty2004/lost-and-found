@@ -8,7 +8,7 @@ import Home from "./components/Home";
 import ReportForm from "./components/ReportForm";
 import LostItemsPage from "./components/LostItem";
 import FoundItemsPage from "./components/FoundItem";
-import LostItemDetails from "./components/LostItemDetails";
+import ItemFound from "./components/ItemFound";
 import { useState } from 'react';
 import Profile from "./components/Profile";
 
@@ -29,6 +29,7 @@ function App() {
         <Route path="/found-items" element={<FoundItemsPage foundItems={foundItems} />}/>
         <Route path="/report-form" element={<ReportForm />} />
         <Route path="/lost-item" element={<LostItemsPage />} />
+        <Route path="/item-found" element={<ItemFound />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>

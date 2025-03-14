@@ -20,8 +20,8 @@ const LostItem = () => {
     };
   }, []);
 
-  const handleItemClick = (item) => {
-    navigate("/lost-item-details", { state: { item } });
+  const handleCardClick = (item) => {
+    navigate("/item-found", { state: { item } });
   };
 
   return (
@@ -30,10 +30,13 @@ const LostItem = () => {
         <p className="no-items">No lost items reported yet.</p>
       ) : (
         lostItems.map((item, index) => (
-          <div key={index} className="item-card" onClick={() => handleItemClick(item)}>
+          <div key={index} className="item-card" onClick={() => handleCardClick(item)}>
             {item.imagePreview && <img src={item.imagePreview} alt="Lost Item" className="item-image" />}
             <div className="item-details">
               <h3 className="item-name">{item.itemName}</h3>
+              <p className="info">
+                <strong>Last Seen:</strong> {item.location}, on {item.date}
+              </p>
             </div>
           </div>
         ))

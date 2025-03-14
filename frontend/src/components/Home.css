@@ -1,9 +1,10 @@
-/* Wrapper to ensure full width and remove spaces */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 .home-wrapper {
   display: flex;
   flex-direction: column;
@@ -18,14 +19,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(221, 160, 221, 0.293);
-  padding: 20px;
+  background-color: rgba(221, 160, 221, 0.6);
+  padding: 40px;
   width: 100%;
-  min-height: 50vh;
+  min-height: 60vh;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
-  margin: 0;
-  border-radius: 0; /* Remove border-radius for full-width */
 }
 
 .text-container {
@@ -34,10 +33,9 @@
 }
 
 .title {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: bold;
   color: purple;
-  margin: 0;
 }
 
 .image-container {
@@ -47,44 +45,66 @@
   align-items: center;
   background-color: bisque;
   padding: 20px;
-  border-radius: 0;
 }
 
 .image-container img {
-  width: 350px;
-  height: 350px;
+  width: 380px;
+  height: 380px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Second Block */
+/* Second Block - How It Works */
 .info-container {
-  background-color: rgba(0, 0, 0, 0.603);
+  background-color: #111;
   text-align: center;
   width: 100%;
-  padding: 20px;
-  margin: 0;
-  min-height: 30vh;
-  border-radius: 0;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 40px 20px;
+  min-height: 50vh;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
 }
 
 .info-title {
-  font-size: 30px;
+  font-size: 34px;
   font-weight: bold;
   color: blue;
+  margin-bottom: 20px;
 }
 
-.info-text {
-  font-size: 18px;
-  color: black;
-  margin-top: 10px;
+/* Info Cards Container */
+.info-blocks {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
-/* Ensure navbar is directly above home-container */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
+/* Individual Cards */
+.info-card {
+  background-color: #222;
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: cyan;
+}
+
+.info-card p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* Hover Effect */
+.info-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 14px rgba(0, 255, 255, 0.5);
 }

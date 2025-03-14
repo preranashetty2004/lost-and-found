@@ -47,11 +47,38 @@ const loginUser = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
-
-// Get User Profile
 const getUserProfile = async (req, res) => {
   res.json(req.user);
 };
+
+// Get User Profile
+// const updateUserProfile = async (req, res) => {
+//   try {
+//     const user = await User.findById(req.user._id); // Get the logged-in user
+
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+
+//     // Update fields (only if provided in request body)
+//     if (req.body.phone) user.phone = req.body.phone;
+
+//     // Save updated user
+//     await user.save();
+
+//     res.json({
+//       message: "Profile updated successfully!",
+//       _id: user._id,
+//       name: user.name,
+//       email: user.email,
+//       phone: user.phone,
+//     });
+//   } catch (error) {
+//     console.error("Error updating profile:", error);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// };
+
 
 // ✅ Ensure all functions are properly exported
 module.exports = { registerUser, loginUser, getUserProfile };
