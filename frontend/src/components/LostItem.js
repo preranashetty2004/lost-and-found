@@ -36,7 +36,9 @@ const LostItem = () => {
       ) : (
         lostItems.map((item, index) => (
           <div key={index} className="item-card" onClick={() => handleCardClick(item)}>
-  {item.image && <img src={`http://localhost:5000/uploads/${item.image}`} alt="Lost Item" className="item-image" />}
+  {item.image && (
+              <img src={`data:image/jpeg;base64,${item.image}`} alt="Lost Item" className="item-image" />
+            )}
             <div className="item-details">
               <h3 className="item-name">{item.itemName}</h3>
               <p className="info">

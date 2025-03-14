@@ -6,7 +6,7 @@ const reportSchema = new mongoose.Schema({
   date: { type: Date, required: true },
   location: { type: String, required: true },
   description: { type: String, required: true },
-  imageUrl: { type: String },
+  image: { type: String },//store image
   contact: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
 });
