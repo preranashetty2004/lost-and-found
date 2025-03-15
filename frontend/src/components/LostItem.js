@@ -15,6 +15,8 @@ const LostItem = () => {
       }
       const data =await response.json();
       setLostItems(data);
+      console.log("Fetched lost items:", data);
+      setLostItems(data)
     }catch(error){
       console.error("Error fetching lost items:", error);
     }
@@ -26,6 +28,7 @@ const LostItem = () => {
     
 
   const handleCardClick = (item) => {
+    console.log("Navigating with item data:", item);
     navigate("/item-found", { state: { item } });
   };
 
@@ -36,13 +39,13 @@ const LostItem = () => {
       ) : (
         lostItems.map((item, index) => (
           <div key={index} className="item-card" onClick={() => handleCardClick(item)}>
-  {item.image && (
+           {item.image && (
               <img src={`data:image/jpeg;base64,${item.image}`} alt="Lost Item" className="item-image" />
             )}
             <div className="item-details">
               <h3 className="item-name">{item.itemName}</h3>
               <p className="info">
-                <strong>Last Seen:</strong> {item.location}, on {item.date}
+              <strong>Last Seen:</strong> {item.location}, on {new Date(item.date).toLocaleDateString()}
               </p>
             </div>
           </div>

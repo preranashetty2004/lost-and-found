@@ -18,6 +18,10 @@ const createReport = async (req, res) => {
       // Convert image to Base64
       imageBase64 = fs.readFileSync(req.file.path, { encoding: "base64" });
 
+      //  Debugging: Log first 100 characters of Base64 string
+      console.log("Base64 Image (First 100 chars):", imageBase64.substring(0, 100));
+
+
       // Optional: Delete file after conversion
       fs.unlinkSync(req.file.path);
     }

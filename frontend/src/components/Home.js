@@ -11,7 +11,7 @@ const Home = () => {
         </div>
         <div className="image-container">
           <img
-            src="https://freepngimg.com/thumb/wallet/8-wallet-png-image.png"
+            src="https://i.pinimg.com/736x/40/41/ef/4041ef4e4bddd64152868a1295682bc9.jpg"
             alt="Lost Wallet"
           />
         </div>
