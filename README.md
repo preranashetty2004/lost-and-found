@@ -21,3 +21,6 @@ he lost or found items are present here..
 .Users can find their respective lost and found items in this page
 
 ![image alt](https://github.com/preranashetty2004/lost-and-found/blob/b1ea2fd42ec7a43a3b162ddb483dc81fb4192d7e/screenshots/items.png)
+
+![image alt](https://github.com/preranashetty2004/lost-and-found/blob/e6541f105cca9d0d64190ca3e9412201b1b4e138/screenshots/details%20abt%20item.png)
+![image alt](https://github.com/preranashetty2004/lost-and-found/blob/e6541f105cca9d0d64190ca3e9412201b1b4e138/screenshots/details%20abt%20img.png)
