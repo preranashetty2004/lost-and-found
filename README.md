@@ -6,3 +6,18 @@ Welcome to Lost And Found Portal....
 
 #Login Page:
 ![image alt](https://github.com/preranashetty2004/lost-and-found/blob/1ddbb02321c8f712b3076baec2ab864ee9628d6a/screenshots/login%20page.png)
+
+
+##Profile:
+![image alt](https://github.com/preranashetty2004/lost-and-found/blob/b1ea2fd42ec7a43a3b162ddb483dc81fb4192d7e/screenshots/profile.png)
+
+##Report Item:
+User can report lost or found items in the portal
+
+![image alt](https://github.com/preranashetty2004/lost-and-found/blob/b1ea2fd42ec7a43a3b162ddb483dc81fb4192d7e/screenshots/report%20lostfound%20form.png)
+
+##Item page:
+he lost or found items are present here..
+.Users can find their respective lost and found items in this page
+
+![image alt](https://github.com/preranashetty2004/lost-and-found/blob/b1ea2fd42ec7a43a3b162ddb483dc81fb4192d7e/screenshots/items.png)
