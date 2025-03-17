@@ -30,10 +30,10 @@ const Navbar = () => {
             <Link to="/" className="nav-item">Home</Link>
           </li>
           <li>
-          <Link to="/report-form" className="nav-item">Report Lost</Link>
+          <Link to="/report-form" className="nav-item">Report Item</Link>
           </li>
             <li> 
-            <Link to="/Lost-item" className="nav-item">Lost Item</Link>
+            <Link to="/Lost-item" className="nav-item"> Item</Link>
           </li>
           
           <li>
