@@ -1,5 +1,6 @@
 # lost-and-found
 Welcome to Lost And Found Portal....
+Lost&Found is a web application developed using the MERN stack. It is a platform that helps users report and track lost and found items in the college premises The main goal of the application is to reunite lost items with their rightful owners.
 
 # Home page
 ![image alt](https://github.com/preranashetty2004/lost-and-found/blob/bf457bd18e9c0265925e53656934e7e1455baaec/screenshots/home.png)
